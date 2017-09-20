@@ -1,0 +1,97 @@
+<%- | Stdlib::Absolutepath $destination,
+      Integer $pigz_cpu_cores
+| -%>
+#!/bin/bash
+
+##
+# created by foxxx0 and bastelfreak
+##
+# THIS FILE IS MANAGED BY PUPPET
+##
+# 2014        - creation
+# 2015-07-26  - add postgres stuff
+# 2017-09-19  - set pigs to --fast and 10 cores
+# 2017-09-20  - move dumps to own LV, dump roles + schema on postgresql
+# 2018-04-24  - template params for destination
+# 2019-05-09  - don't run psql specific chroot if we don't have psql databases
+# 2019-05-09  - use correct fileending for LDAP dumps
+##
+
+# mysql stuff
+_mysqlopts='--add-drop-database --add-drop-table --create-options --disable-keys --add-locks --lock-tables --extended-insert --quick --set-charset'
+# skip the following databases
+_skipdbs="information_schema"
+# misc stuff
+_hostname="$(hostname)"
+_date=$(date +"%Y-%m-%d")
+_dest="<%= $destination %>/${_date}"
+_file_dest=$(date +"%H-%M")
+if [ ! -d "${_dest}" ]; then
+  mkdir -p "${_dest}"
+fi
+# initialize vars
+_file=''
+_mysqldbs=''
+_psqldbs=''
+# make destination only root accessible
+chown -R 0:0 "${_dest}"
+chmod 0700 "${_dest}"
+# get a list of all databases
+if [ "$(command -v mysql)" ]; then
+  _mysqldbs="$(mysql -Bse 'show databases')"
+fi
+
+if getent passwd postgres > /dev/null; then
+  _psqldbs="$(su postgres -c "cd ~; psql -tqc 'SELECT datname FROM pg_database where datistemplate = false;'")"
+fi
+
+for db in ${_mysqldbs}
+do
+  skipdb=-1
+  if [ "${_skipdbs}" != "" ]; then
+  for i in ${_skipdbs}; do
+    [ "${db}" == "${i}" ] && skipdb=1 || :
+  done
+  fi
+
+  if [[ ${skipdb} -eq -1 ]]; then
+  _file="${_dest}/${db}.${_hostname}.${_date}-${_file_dest}.mysql.gz"
+  mysqldump ${_mysqlopts} --databases ${db} | pigz --processes <%= $pigz_cpu_cores %> > ${_file}
+  fi
+done
+
+if getent passwd postgres > /dev/null; then
+  chown -R postgres: "${_dest}"
+fi
+
+for db in ${_psqldbs}; do
+  skipdb=-1
+  if [ "${_skipdbs}" != "" ]; then
+  for i in ${_skipdbs}; do
+    [ "${db}" == "${i}" ] && skipdb=1 || :
+  done
+  fi
+
+  if [[ ${skipdb} -eq -1 ]]; then
+    echo "dumping ${db}"
+    _file="${_dest}/${db}.${_hostname}.${_date}-${_file_dest}.psql.gz"
+    su postgres -c "cd ~; pg_dump --format=plain ${db} | pigz --processes <%= $dbbackup::pigz_cpu_cores %> --fast > ${_file}"
+  else
+    echo "NOT dumping ${db}"
+  fi
+done
+if [ -n "${_psqldbs}" ]; then
+  _file="${_dest}/roles.${_hostname}.${_date}-${_file_dest}.psql.gz"
+  echo "dumping postgres roles"
+  su postgres -c "cd ~; pg_dumpall --roles-only | pigz --processes <%= $dbbackup::pigz_cpu_cores %> --fast > ${_file}"
+  _file="${_dest}/schema.${_hostname}.${_date}-${_file_dest}.psql.gz"
+  echo "dumping postgres schema"
+  su postgres -c "cd ~; pg_dumpall --schema-only | pigz --processes <%= $dbbackup::pigz_cpu_cores %> --fast > ${_file}"
+fi
+
+if [ "$(command -v slapcat)" ]; then
+  _file="${_dest}/ldap.${_hostname}.${_date}-${_file_dest}.ldif.gz"
+  slapcat | pigz --processes <%= $dbbackup::pigz_cpu_cores %> --fast > "${_file}"
+fi
+
+chown -R 0:0 "${_dest}"

@@ -1,0 +1,21 @@
+<%- | Optional[Integer[1]] $backuphistory,
+      Stdlib::Absolutepath $destination,
+      Boolean $cleanup_empty_backup_dirs,
+| -%>
+# THIS FILE IS MANAGED BY PUPPET
+[Unit]
+Description=Backup Databases
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/dump_databases
+<% if $backuphistory { -%>
+ExecStartPost=/usr/bin/find <%= $destination %> -mtime +<%= $backuphistory %> -delete
+<% } -%>
+<% if $cleanup_empty_backup_dirs { -%>
+ExecStartPost=/usr/bin/find <%= $destination %> -type d -empty -delete
+<% } -%>
+
+[Install]
+WantedBy=multi-user.target
