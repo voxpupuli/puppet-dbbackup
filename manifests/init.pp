@@ -1,7 +1,7 @@
 # @summary module to configure a systemd timer + script to backup postgres, mysql and ldap databases
 #
 # @param pigz_cpu_cores
-#   number of cpu cores used for backup compression
+#   number of cpu cores used for backup compression. If undefined, nproc will be used when available.
 # @param destination
 #   directory where backups will be stored (with one subdirectory per backup day)
 # @param interval
@@ -13,11 +13,11 @@
 #
 # @author Tim Meusel <tim@bastelfreak.de>
 class dbbackup (
-  Integer[1] $pigz_cpu_cores          = $facts['processors']['count'],
-  Stdlib::Absolutepath $destination   = '/mnt/dumps',
-  String[2] $interval                 = '1h',
-  Optional[Integer[1]] $backuphistory = undef,
-  Boolean $cleanup_empty_backup_dirs  = true,
+  Optional[Integer[1]] $pigz_cpu_cores = undef,
+  Stdlib::Absolutepath $destination    = '/mnt/dumps',
+  String[2] $interval                  = '1h',
+  Optional[Integer[1]] $backuphistory  = undef,
+  Boolean $cleanup_empty_backup_dirs   = true,
 ) {
   file { '/usr/local/bin/dump_databases':
     content => epp("${module_name}/dump_databases.epp", {
