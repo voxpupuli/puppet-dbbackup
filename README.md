@@ -1,5 +1,13 @@
 # puppet-dbbackup
 
+[![Build Status](https://travis-ci.com/voxpupuli/puppet-dbbackup.svg?branch=master)](https://travis-ci.com/voxpupuli/puppet-dbbackup)
+[![Puppet Forge](https://img.shields.io/puppetforge/v/puppet/dbbackup.svg)](https://forge.puppetlabs.com/puppet/dbbackup)
+[![Puppet Forge - downloads](https://img.shields.io/puppetforge/dt/puppet/dbbackup.svg)](https://forge.puppetlabs.com/puppet/dbbackup)
+[![Puppet Forge - endorsement](https://img.shields.io/puppetforge/e/puppet/dbbackup.svg)](https://forge.puppetlabs.com/puppet/dbbackup)
+[![Puppet Forge - scores](https://img.shields.io/puppetforge/f/puppet/dbbackup.svg)](https://forge.puppetlabs.com/puppet/dbbackup)
+[![puppetmodule.info docs](http://www.puppetmodule.info/images/badge.png)](http://www.puppetmodule.info/m/puppet-dbbackup)
+[![AGPL v3 License](https://img.shields.io/github/license/voxpupuli/puppet-dbbackup.svg)](LICENSE)
+
 ## Table of Contents
 
 * [Overview](#overview)
