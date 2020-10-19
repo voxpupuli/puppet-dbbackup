@@ -13,8 +13,6 @@ describe 'dbbackup' do
 
       context 'with all defaults' do
         it { is_expected.to compile.with_all_deps }
-        it { is_expected.to contain_class('dbbackup::install') }
-        it { is_expected.to contain_class('dbbackup::service') }
         it { is_expected.to contain_file('/usr/local/bin/dump_databases') }
         it { is_expected.to contain_systemd__unit_file('dump_databases.service') }
         it { is_expected.to contain_systemd__unit_file('dump_databases.timer') }
