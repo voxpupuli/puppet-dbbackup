@@ -1,5 +1,5 @@
 <%- | Stdlib::Absolutepath $destination,
-      Integer $pigz_cpu_cores
+      Optional[Integer[1]] $pigz_cpu_cores
 | -%>
 #!/bin/bash
 
@@ -16,6 +16,17 @@
 # 2019-05-09  - don't run psql specific chroot if we don't have psql databases
 # 2019-05-09  - use correct fileending for LDAP dumps
 ##
+
+# pigz
+_pigz_processes="<%= $pigz_cpu_cores %>"
+if [[ -n $_pigz_processes ]] ; then
+  if which nproc > /dev/null 2>&1 ; then
+    _pigz_processes="$(nproc)"
+  else
+    _pigz_processes=1
+  fi
+fi
+alias pigz="pigz --processes $_pigz_processes"
 
 # mysql stuff
 _mysqlopts='--add-drop-database --add-drop-table --create-options --disable-keys --add-locks --lock-tables --extended-insert --quick --set-charset'
@@ -56,7 +67,7 @@ do
 
   if [[ ${skipdb} -eq -1 ]]; then
   _file="${_dest}/${db}.${_hostname}.${_date}-${_file_dest}.mysql.gz"
-  mysqldump ${_mysqlopts} --databases ${db} | pigz --processes <%= $pigz_cpu_cores %> > ${_file}
+  mysqldump ${_mysqlopts} --databases ${db} | pigz > ${_file}
   fi
 done
 
@@ -75,7 +86,7 @@ for db in ${_psqldbs}; do
   if [[ ${skipdb} -eq -1 ]]; then
     echo "dumping ${db}"
     _file="${_dest}/${db}.${_hostname}.${_date}-${_file_dest}.psql.gz"
-    su postgres -c "cd ~; pg_dump --format=plain ${db} | pigz --processes <%= $dbbackup::pigz_cpu_cores %> --fast > ${_file}"
+    su postgres -c "cd ~; pg_dump --format=plain ${db} | pigz --fast > ${_file}"
   else
     echo "NOT dumping ${db}"
   fi
@@ -83,15 +94,15 @@ done
 if [ -n "${_psqldbs}" ]; then
   _file="${_dest}/roles.${_hostname}.${_date}-${_file_dest}.psql.gz"
   echo "dumping postgres roles"
-  su postgres -c "cd ~; pg_dumpall --roles-only | pigz --processes <%= $dbbackup::pigz_cpu_cores %> --fast > ${_file}"
+  su postgres -c "cd ~; pg_dumpall --roles-only | pigz --fast > ${_file}"
   _file="${_dest}/schema.${_hostname}.${_date}-${_file_dest}.psql.gz"
   echo "dumping postgres schema"
-  su postgres -c "cd ~; pg_dumpall --schema-only | pigz --processes <%= $dbbackup::pigz_cpu_cores %> --fast > ${_file}"
+  su postgres -c "cd ~; pg_dumpall --schema-only | pigz --fast > ${_file}"
 fi
 
 if [ "$(command -v slapcat)" ]; then
   _file="${_dest}/ldap.${_hostname}.${_date}-${_file_dest}.ldif.gz"
-  slapcat | pigz --processes <%= $dbbackup::pigz_cpu_cores %> --fast > "${_file}"
+  slapcat | pigz --fast > "${_file}"
 fi
 
 chown -R 0:0 "${_dest}"
