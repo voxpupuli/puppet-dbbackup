@@ -20,11 +20,11 @@ The following parameters are available in the `dbbackup` class.
 
 ##### `pigz_cpu_cores`
 
-Data type: `Integer[1]`
+Data type: `Optional[Integer[1]]`
 
-number of cpu cores used for backup compression
+number of cpu cores used for backup compression. If undefined, nproc will be used when available.
 
-Default value: `$facts['processors']['count']`
+Default value: ``undef``
 
 ##### `destination`
 
