@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v1.0.1](https://github.com/voxpupuli/puppet-dbbackup/tree/v1.0.1) (2021-07-26)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-dbbackup/compare/v1.0.0...v1.0.1)
+
+**Merged pull requests:**
+
+- switch from camptocamp/systemd to voxpupuli/systemd [\#17](https://github.com/voxpupuli/puppet-dbbackup/pull/17) ([bastelfreak](https://github.com/bastelfreak))
+
 ## [v1.0.0](https://github.com/voxpupuli/puppet-dbbackup/tree/v1.0.0) (2021-05-18)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-dbbackup/compare/b37883a0bdcd3d32989f109fb888cfd429ea9b82...v1.0.0)
