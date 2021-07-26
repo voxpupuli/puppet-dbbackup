@@ -17,6 +17,17 @@ describe 'dbbackup' do
         it { is_expected.to contain_systemd__unit_file('dump_databases.service') }
         it { is_expected.to contain_systemd__unit_file('dump_databases.timer') }
         it { is_expected.to contain_service('dump_databases.timer') }
+        it { is_expected.not_to contain_package('pigz') }
+      end
+      context 'with managed deps' do
+        let :params do
+          {
+            manage_dependencies: true
+          }
+        end
+
+        it { is_expected.to compile.with_all_deps }
+        it { is_expected.to contain_package('pigz') }
       end
     end
   end

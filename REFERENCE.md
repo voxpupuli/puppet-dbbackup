@@ -23,6 +23,8 @@ The following parameters are available in the `dbbackup` class:
 * [`interval`](#interval)
 * [`backuphistory`](#backuphistory)
 * [`cleanup_empty_backup_dirs`](#cleanup_empty_backup_dirs)
+* [`dependencies`](#dependencies)
+* [`manage_dependencies`](#manage_dependencies)
 
 ##### <a name="pigz_cpu_cores"></a>`pigz_cpu_cores`
 
@@ -63,4 +65,20 @@ Data type: `Boolean`
 enable/disable a post command to cleanup empty directories with $destination. They can occour if the system run out of free diskspace
 
 Default value: ``true``
+
+##### <a name="dependencies"></a>`dependencies`
+
+Data type: `Array[String[1]]`
+
+array of dependencies for the database dump script
+
+Default value: `['pigz']`
+
+##### <a name="manage_dependencies"></a>`manage_dependencies`
+
+Data type: `Boolean`
+
+Boolean to enable/disable the installation of the dependencies. defaults to false because the parameter was added after the initial release
+
+Default value: ``false``
 
