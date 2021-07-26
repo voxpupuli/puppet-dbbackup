@@ -10,15 +10,21 @@
 
 ## Classes
 
-### `dbbackup`
+### <a name="dbbackup"></a>`dbbackup`
 
 module to configure a systemd timer + script to backup postgres, mysql and ldap databases
 
 #### Parameters
 
-The following parameters are available in the `dbbackup` class.
+The following parameters are available in the `dbbackup` class:
 
-##### `pigz_cpu_cores`
+* [`pigz_cpu_cores`](#pigz_cpu_cores)
+* [`destination`](#destination)
+* [`interval`](#interval)
+* [`backuphistory`](#backuphistory)
+* [`cleanup_empty_backup_dirs`](#cleanup_empty_backup_dirs)
+
+##### <a name="pigz_cpu_cores"></a>`pigz_cpu_cores`
 
 Data type: `Optional[Integer[1]]`
 
@@ -26,7 +32,7 @@ number of cpu cores used for backup compression. If undefined, nproc will be use
 
 Default value: ``undef``
 
-##### `destination`
+##### <a name="destination"></a>`destination`
 
 Data type: `Stdlib::Absolutepath`
 
@@ -34,7 +40,7 @@ directory where backups will be stored (with one subdirectory per backup day)
 
 Default value: `'/mnt/dumps'`
 
-##### `interval`
+##### <a name="interval"></a>`interval`
 
 Data type: `String[2]`
 
@@ -42,7 +48,7 @@ how often the systemd timer will trigger the dump script. This will be used for 
 
 Default value: `'1h'`
 
-##### `backuphistory`
+##### <a name="backuphistory"></a>`backuphistory`
 
 Data type: `Optional[Integer[1]]`
 
@@ -50,7 +56,7 @@ number of days to keep the backup history
 
 Default value: ``undef``
 
-##### `cleanup_empty_backup_dirs`
+##### <a name="cleanup_empty_backup_dirs"></a>`cleanup_empty_backup_dirs`
 
 Data type: `Boolean`
 
