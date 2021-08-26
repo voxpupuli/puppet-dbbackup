@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v1.1.1](https://github.com/voxpupuli/puppet-dbbackup/tree/v1.1.1) (2021-08-26)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-dbbackup/compare/v1.1.0...v1.1.1)
+
+**Merged pull requests:**
+
+- Allow up-to-date dependencies [\#23](https://github.com/voxpupuli/puppet-dbbackup/pull/23) ([smortex](https://github.com/smortex))
+
 ## [v1.1.0](https://github.com/voxpupuli/puppet-dbbackup/tree/v1.1.0) (2021-07-26)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-dbbackup/compare/v1.0.1...v1.1.0)
