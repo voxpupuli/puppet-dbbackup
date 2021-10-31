@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper_acceptance'
 
 describe 'dbbackup' do
@@ -15,6 +17,7 @@ describe 'dbbackup' do
       it { is_expected.to be_enabled }
       it { is_expected.to be_running }
     end
+
     describe file('/usr/local/bin/dump_databases') do
       it { is_expected.to be_executable }
     end
