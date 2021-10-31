@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'dbbackup' do
@@ -6,7 +8,7 @@ describe 'dbbackup' do
   end
 
   on_supported_os.each do |os, facts|
-    context "on #{os} " do
+    context "on #{os}" do
       let :facts do
         facts
       end
@@ -19,6 +21,7 @@ describe 'dbbackup' do
         it { is_expected.to contain_service('dump_databases.timer') }
         it { is_expected.not_to contain_package('pigz') }
       end
+
       context 'with managed deps' do
         let :params do
           {
