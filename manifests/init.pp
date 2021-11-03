@@ -1,7 +1,5 @@
 # @summary module to configure a systemd timer + script to backup postgres, mysql and ldap databases
 #
-# @param pigz_cpu_cores
-#   number of cpu cores used for backup compression. If undefined, nproc will be used when available.
 # @param destination
 #   directory where backups will be stored (with one subdirectory per backup day)
 # @param interval
