@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v1.2.0](https://github.com/voxpupuli/puppet-dbbackup/tree/v1.2.0) (2022-04-20)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-dbbackup/compare/v1.1.1...v1.2.0)
+
+**Implemented enhancements:**
+
+- Add CentOS 9 support [\#34](https://github.com/voxpupuli/puppet-dbbackup/pull/34) ([bastelfreak](https://github.com/bastelfreak))
+- Add CentOS 8 support [\#32](https://github.com/voxpupuli/puppet-dbbackup/pull/32) ([bastelfreak](https://github.com/bastelfreak))
+
+**Merged pull requests:**
+
+- fixtures.yml: switch to https urls [\#35](https://github.com/voxpupuli/puppet-dbbackup/pull/35) ([bastelfreak](https://github.com/bastelfreak))
+
 ## [v1.1.1](https://github.com/voxpupuli/puppet-dbbackup/tree/v1.1.1) (2021-08-26)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-dbbackup/compare/v1.1.0...v1.1.1)
