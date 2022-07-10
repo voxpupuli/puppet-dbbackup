@@ -31,7 +31,7 @@ alias pigz="pigz --processes $_pigz_processes"
 # mysql stuff
 _mysqlopts='--add-drop-database --add-drop-table --create-options --disable-keys --add-locks --lock-tables --extended-insert --quick --set-charset'
 # skip the following databases
-_skipdbs="information_schema"
+_skipdbs="information_schema performance_schema"
 # misc stuff
 _hostname="$(hostname)"
 _date=$(date +"%Y-%m-%d")
