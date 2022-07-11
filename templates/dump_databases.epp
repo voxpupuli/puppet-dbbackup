@@ -60,14 +60,16 @@ for db in ${_mysqldbs}
 do
   skipdb=-1
   if [ "${_skipdbs}" != "" ]; then
-  for i in ${_skipdbs}; do
-    [ "${db}" == "${i}" ] && skipdb=1 || :
-  done
+    for i in ${_skipdbs}; do
+      [ "${db}" == "${i}" ] && skipdb=1 || :
+    done
   fi
 
   if [[ ${skipdb} -eq -1 ]]; then
-  _file="${_dest}/${db}.${_hostname}.${_date}-${_file_dest}.mysql.gz"
-  mysqldump ${_mysqlopts} --databases ${db} | pigz > ${_file}
+    _file="${_dest}/${db}.${_hostname}.${_date}-${_file_dest}.mysql.gz"
+    mysqldump ${_mysqlopts} --databases ${db} | pigz > ${_file}
+  else
+    echo "NOT dumping ${db}"
   fi
 done
 
