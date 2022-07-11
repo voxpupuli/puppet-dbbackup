@@ -1,4 +1,5 @@
 # puppet-dbbackup
+
 [![Build Status](https://github.com/voxpupuli/puppet-dbbackup/workflows/CI/badge.svg)](https://github.com/voxpupuli/puppet-dbbackup/actions?query=workflow%3ACI)
 [![Release](https://github.com/voxpupuli/puppet-dbbackup/actions/workflows/release.yml/badge.svg)](https://github.com/voxpupuli/puppet-dbbackup/actions/workflows/release.yml)
 [![Puppet Forge](https://img.shields.io/puppetforge/v/puppet/dbbackup.svg)](https://forge.puppetlabs.com/puppet/dbbackup)
