@@ -66,6 +66,7 @@ do
   fi
 
   if [[ ${skipdb} -eq -1 ]]; then
+    echo "dumping ${db}"
     _file="${_dest}/${db}.${_hostname}.${_date}-${_file_dest}.mysql.gz"
     mysqldump ${_mysqlopts} --databases ${db} | pigz > ${_file}
   else
