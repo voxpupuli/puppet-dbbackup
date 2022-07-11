@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v1.2.1](https://github.com/voxpupuli/puppet-dbbackup/tree/v1.2.1) (2022-07-11)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-dbbackup/compare/v1.2.0...v1.2.1)
+
+**Fixed bugs:**
+
+- mysql: log skipped databases [\#38](https://github.com/voxpupuli/puppet-dbbackup/pull/38) ([bastelfreak](https://github.com/bastelfreak))
+- mysql: skip performance\_schema [\#37](https://github.com/voxpupuli/puppet-dbbackup/pull/37) ([bastelfreak](https://github.com/bastelfreak))
+
 ## [v1.2.0](https://github.com/voxpupuli/puppet-dbbackup/tree/v1.2.0) (2022-04-20)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-dbbackup/compare/v1.1.1...v1.2.0)
