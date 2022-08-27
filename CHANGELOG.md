@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v1.3.1](https://github.com/voxpupuli/puppet-dbbackup/tree/v1.3.1) (2022-08-27)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-dbbackup/compare/v1.3.0...v1.3.1)
+
+**Fixed bugs:**
+
+- systemd: Set WorkingDirectory=~ [\#42](https://github.com/voxpupuli/puppet-dbbackup/pull/42) ([bastelfreak](https://github.com/bastelfreak))
+
 ## [v1.3.0](https://github.com/voxpupuli/puppet-dbbackup/tree/v1.3.0) (2022-07-11)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-dbbackup/compare/v1.2.1...v1.3.0)
