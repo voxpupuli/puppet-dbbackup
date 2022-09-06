@@ -17,6 +17,8 @@
 # 2019-05-09  - use correct fileending for LDAP dumps
 ##
 
+set -e
+
 # pigz
 _pigz_processes="<%= $pigz_cpu_cores %>"
 if [[ -n $_pigz_processes ]] ; then
