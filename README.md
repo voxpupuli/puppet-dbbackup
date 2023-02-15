@@ -84,3 +84,4 @@ file.
 
 This module was originally written by [Tim Meusel](https://github.com/bastelfreak).
 It's licensed with [AGPL version 3](LICENSE).
+
