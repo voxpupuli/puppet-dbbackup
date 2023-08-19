@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v2.0.0](https://github.com/voxpupuli/puppet-dbbackup/tree/v2.0.0) (2023-08-19)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-dbbackup/compare/v1.3.1...v2.0.0)
+
+**Breaking changes:**
+
+- Drop Puppet 6 support [\#51](https://github.com/voxpupuli/puppet-dbbackup/pull/51) ([bastelfreak](https://github.com/bastelfreak))
+
+**Implemented enhancements:**
+
+- puppet/systemd: Allow 5.x [\#57](https://github.com/voxpupuli/puppet-dbbackup/pull/57) ([bastelfreak](https://github.com/bastelfreak))
+- Add Puppet 8 support [\#55](https://github.com/voxpupuli/puppet-dbbackup/pull/55) ([bastelfreak](https://github.com/bastelfreak))
+- puppetlabs/stdlib: Allow 9.x [\#54](https://github.com/voxpupuli/puppet-dbbackup/pull/54) ([bastelfreak](https://github.com/bastelfreak))
+- bump puppet/systemd to \< 5.0.0 [\#47](https://github.com/voxpupuli/puppet-dbbackup/pull/47) ([jhoblitt](https://github.com/jhoblitt))
+- Fail script on error [\#44](https://github.com/voxpupuli/puppet-dbbackup/pull/44) ([hashworks](https://github.com/hashworks))
+
 ## [v1.3.1](https://github.com/voxpupuli/puppet-dbbackup/tree/v1.3.1) (2022-08-27)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-dbbackup/compare/v1.3.0...v1.3.1)
