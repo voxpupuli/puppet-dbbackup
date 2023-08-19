@@ -1,6 +1,6 @@
 {
   "name": "puppet-dbbackup",
-  "version": "2.0.0",
+  "version": "2.0.1-rc0",
   "summary": "Install a generic database backup solution for mysql and postgres",
   "author": "Vox Pupuli",
   "dependencies": [
