@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v2.1.0](https://github.com/voxpupuli/puppet-dbbackup/tree/v2.1.0) (2024-07-04)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-dbbackup/compare/v2.0.0...v2.1.0)
+
+**Implemented enhancements:**
+
+- add Ubuntu 20.04 and 22.04 [\#68](https://github.com/voxpupuli/puppet-dbbackup/pull/68) ([Dan33l](https://github.com/Dan33l))
+- puppetlabs/systemd: Allow 6.x [\#61](https://github.com/voxpupuli/puppet-dbbackup/pull/61) ([zilchms](https://github.com/zilchms))
+
+**Merged pull requests:**
+
+- update puppet-systemd upper bound to 8.0.0 [\#64](https://github.com/voxpupuli/puppet-dbbackup/pull/64) ([TheMeier](https://github.com/TheMeier))
+
 ## [v2.0.0](https://github.com/voxpupuli/puppet-dbbackup/tree/v2.0.0) (2023-08-19)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-dbbackup/compare/v1.3.1...v2.0.0)
