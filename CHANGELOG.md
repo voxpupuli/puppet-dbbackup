@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v2.2.0](https://github.com/voxpupuli/puppet-dbbackup/tree/v2.2.0) (2025-06-24)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-dbbackup/compare/v2.1.0...v2.2.0)
+
+**Implemented enhancements:**
+
+- add : ubuntu2404 as supported OS [\#76](https://github.com/voxpupuli/puppet-dbbackup/pull/76) ([Tonguechaude](https://github.com/Tonguechaude))
+- metadata.json: Add OpenVox [\#75](https://github.com/voxpupuli/puppet-dbbackup/pull/75) ([jstraw](https://github.com/jstraw))
+
+**Merged pull requests:**
+
+- puppet/systemd: allow 8.x [\#72](https://github.com/voxpupuli/puppet-dbbackup/pull/72) ([jay7x](https://github.com/jay7x))
+
 ## [v2.1.0](https://github.com/voxpupuli/puppet-dbbackup/tree/v2.1.0) (2024-07-04)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-dbbackup/compare/v2.0.0...v2.1.0)
