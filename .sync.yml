@@ -1,6 +1,15 @@
 ---
 spec/spec_helper_acceptance.rb:
-  unmanaged: false
+  unmanaged: true
+Gemfile:
+  required:
+    ':system_tests':
+      - gem: 'beaker-puppet'
+        version: '~> 4.2'
+      - gem: 'puppet_fixtures'
+Rakefile:
+  extras:
+    - 'task :beaker => "fixtures:prep"'
 .puppet-lint.rc:
   enabled_lint_checks:
     - parameter_documentation
