@@ -11,6 +11,9 @@ configure_beaker(modules: :fixtures)
 Dir['./spec/support/acceptance/**/*.rb'].sort.each { |f| require f }
 
 hosts.each do |host|
+  # fix for arch distros
+  host.add_env_var('LC_ALL', 'C.UTF-8')
+
   # configure hiera on SUT
   proj_root = File.expand_path(File.join(File.dirname(__FILE__), '..'))
   fixture_path = File.expand_path(File.join(proj_root, 'spec', 'fixtures'))
