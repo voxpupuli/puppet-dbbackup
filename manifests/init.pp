@@ -27,8 +27,8 @@ class dbbackup (
 ) {
   file { '/usr/local/bin/dump_databases':
     content => epp("${module_name}/dump_databases.epp", {
-        'destination'    => $destination,
-        'pigz_cpu_cores' => $pigz_cpu_cores,
+      'destination'    => $destination,
+      'pigz_cpu_cores' => $pigz_cpu_cores,
     }),
     owner   => 'root',
     group   => 'root',
@@ -38,12 +38,12 @@ class dbbackup (
     enable          => true,
     active          => true,
     timer_content   => epp("${module_name}/dump_databases.timer.epp", {
-        'interval' => $interval,
+      'interval' => $interval,
     }),
     service_content => epp("${module_name}/dump_databases.service.epp", {
-        'backuphistory'             => $backuphistory,
-        'destination'               => $destination,
-        'cleanup_empty_backup_dirs' => $cleanup_empty_backup_dirs,
+      'backuphistory'             => $backuphistory,
+      'destination'               => $destination,
+      'cleanup_empty_backup_dirs' => $cleanup_empty_backup_dirs,
     }),
   }
 
