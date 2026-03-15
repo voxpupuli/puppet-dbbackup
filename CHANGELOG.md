@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v3.0.0](https://github.com/voxpupuli/puppet-dbbackup/tree/v3.0.0) (2026-03-15)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-dbbackup/compare/v2.2.0...v3.0.0)
+
+**Breaking changes:**
+
+- Remove EoL Ubuntu 20.04 [\#93](https://github.com/voxpupuli/puppet-dbbackup/pull/93) ([bastelfreak](https://github.com/bastelfreak))
+- Remove EoL CentOS 7/8 [\#92](https://github.com/voxpupuli/puppet-dbbackup/pull/92) ([bastelfreak](https://github.com/bastelfreak))
+- Drop puppet, update openvox minimum version to 8.19 [\#82](https://github.com/voxpupuli/puppet-dbbackup/pull/82) ([TheMeier](https://github.com/TheMeier))
+
+**Implemented enhancements:**
+
+- Add CentOS 10 support [\#91](https://github.com/voxpupuli/puppet-dbbackup/pull/91) ([bastelfreak](https://github.com/bastelfreak))
+
+**Merged pull requests:**
+
+- feat: update systemd \< 10 [\#88](https://github.com/voxpupuli/puppet-dbbackup/pull/88) ([Tonguechaude](https://github.com/Tonguechaude))
+
 ## [v2.2.0](https://github.com/voxpupuli/puppet-dbbackup/tree/v2.2.0) (2025-06-24)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-dbbackup/compare/v2.1.0...v2.2.0)
