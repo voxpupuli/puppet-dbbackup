@@ -25,7 +25,7 @@ describe 'dbbackup' do
       context 'with managed deps' do
         let :params do
           {
-            manage_dependencies: true
+            manage_dependencies: true,
           }
         end
 
