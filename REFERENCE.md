@@ -81,4 +81,3 @@ Data type: `Boolean`
 Boolean to enable/disable the installation of the dependencies. defaults to false because the parameter was added after the initial release
 
 Default value: `false`
-
