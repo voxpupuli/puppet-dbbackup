@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v3.1.0](https://github.com/voxpupuli/puppet-dbbackup/tree/v3.1.0) (2026-10-28)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-dbbackup/compare/v3.0.0...v3.1.0)
+
+**Implemented enhancements:**
+
+- puppet/systemd: Allow 11.x [\#98](https://github.com/voxpupuli/puppet-dbbackup/pull/98) ([bastelfreak](https://github.com/bastelfreak))
+- Update requirements to allow OpenVox 9 [\#97](https://github.com/voxpupuli/puppet-dbbackup/pull/97) ([sebastianrakel](https://github.com/sebastianrakel))
+
 ## [v3.0.0](https://github.com/voxpupuli/puppet-dbbackup/tree/v3.0.0) (2026-03-15)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-dbbackup/compare/v2.2.0...v3.0.0)
