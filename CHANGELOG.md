@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v4.0.0](https://github.com/voxpupuli/puppet-dbbackup/tree/v4.0.0) (2026-11-18)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-dbbackup/compare/v3.1.0...v4.0.0)
+
+**Breaking changes:**
+
+- Rework pr81 : add more acceptance tests, drop Archlinux [\#104](https://github.com/voxpupuli/puppet-dbbackup/pull/104) ([Dan33l](https://github.com/Dan33l))
+
+**Implemented enhancements:**
+
+- add parameter scheduling\_method [\#102](https://github.com/voxpupuli/puppet-dbbackup/pull/102) ([Dan33l](https://github.com/Dan33l))
+- puppetlabs/stdlib: Allow 10.x [\#100](https://github.com/voxpupuli/puppet-dbbackup/pull/100) ([bastelfreak](https://github.com/bastelfreak))
+
 ## [v3.1.0](https://github.com/voxpupuli/puppet-dbbackup/tree/v3.1.0) (2026-10-28)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-dbbackup/compare/v3.0.0...v3.1.0)
